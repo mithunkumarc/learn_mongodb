@@ -16,3 +16,25 @@
 
 ##### source : mongodb documenatation
 ##### https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+##### after uninsatlling , if mongo didn't connect to server
+##### error : couldn't connect to server 127.0.0.1:27017
+
+
+    This problem could be solved by the below mentioned 4 steps
+
+        Remove .lock file
+
+            sudo rm /var/lib/mongodb/mongod.lock 
+
+        repair the mongodb
+
+            mongod –repair
+
+        start the mongod server
+
+            sudo service mongod start 
+
+        start the mongo client
+
+            mongo
