@@ -21,3 +21,8 @@
     2. column            :  big table, cassandra, simpleDB
     3. graph oriented    :  orientdb, neo4j, titan
     4. document oriented :  mongodb , couchdb
+
+
+##### diff between rdbms nosql
+        rdbms: joins, schema( create query : design of table)
+        nosql : embedded document
