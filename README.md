@@ -1,5 +1,5 @@
-# mongodb
-
+### mongodb
+        cross platform, opensource , document oriented db, 
 
 #### NoSQL : not only sql
 
@@ -9,11 +9,11 @@
 
 ##### features : 
     handles structured , semi structured , unstructured
-    high performance, scalability(horizontal scaling), availabiltiy(replication)
-    quick iteration
+    high performance, scalability, availabiltiy(replication)
+    quick iteration/access(performance : doucment based)
     dynamic schema
-    auto sharing
-    replication
+    auto sharing(horizontal scaling)
+    replication(high availability)
 
 
 ##### types of nosql
