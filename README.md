@@ -26,3 +26,12 @@
 ##### diff between rdbms nosql
         rdbms: joins, schema( create query : design of table)
         nosql : embedded document
+
+
+#### mongod couldn't connect to server 127.0.0.1:27017
+
+        Start mongod server
+        mongod
+        Open another terminal window
+        Start mongo shell
+        mongo
