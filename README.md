@@ -35,3 +35,7 @@
         Open another terminal window
         Start mongo shell
         mongo
+        
+#### open mongo shell command prompt windows
+
+        C:\Program Files\MongoDB\Server\4.2\bin>mongo
