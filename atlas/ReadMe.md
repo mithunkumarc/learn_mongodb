@@ -11,6 +11,19 @@ link to create account :
 
     connect : choose with application : it gives you uri and connection sample code
     
+    
+connection code by atlas
+
+
+        const { MongoClient, ServerApiVersion } = require('mongodb');
+        const uri = "mongodb+srv://mithunkumarc:<yourpassword>@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
+        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+        client.connect(err => {
+          const collection = client.db("test").collection("devices");
+          // perform actions on the collection object
+          client.close();
+        });
+
   
 dependencies : npm
 
