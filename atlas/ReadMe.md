@@ -48,7 +48,7 @@ conn.js
                 module.exports = {
                     connectToServer: async function() {
                         await client.connect();
-                        _db = client.db("mongodbVSCodePlaygroundDB");
+                        _db = client.db("mongodbVSCodePlaygroundDB"); // check db name in atlas
                         _collection = _db.collection('sales');
                     },
                     getDb: function() {
