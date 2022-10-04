@@ -32,7 +32,7 @@ dependencies : npm
     
 example code : 
 
-index.js
+conn.js
 
       const { MongoClient } = require('mongodb');
       const Db = "mongodb+srv://mithunkumarc:<password>@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
@@ -46,6 +46,7 @@ index.js
 
       module.exports = {
           connectToServer: function(callback) {
+                // deprecation
               client.connect(function(err, db) {
                   if(db) {
                       _db = db.db("sales");
@@ -58,6 +59,28 @@ index.js
           }
       }
       
+conn.js using promise
+
+        const { MongoClient } = require('mongodb');
+        const Db = "mongodb+srv://mithunkumarc:mithu123@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
+
+        const client = new MongoClient(Db, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+
+        var _db;
+
+        module.exports = {
+            connectToServer: async function() {
+                await client.connect();
+                _db = client.db("sales");
+                console.log("connected...");
+            },
+            getDb: function() {
+                return _db;
+            }
+        }
       
 server.js
 
