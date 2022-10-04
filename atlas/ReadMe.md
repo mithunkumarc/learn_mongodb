@@ -34,66 +34,45 @@ example code :
 
 conn.js
 
-      const { MongoClient } = require('mongodb');
-      const Db = "mongodb+srv://mithunkumarc:<password>@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
+                const { MongoClient } = require('mongodb');
+                const Db = "mongodb+srv://mithunkumarc:<your_password>@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
 
-      const client = new MongoClient(Db, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-      });
+                const client = new MongoClient(Db, {
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true,
+                });
 
-      var _db;
+                let _db;
+                let _collection;
 
-      module.exports = {
-          connectToServer: function(callback) {
-                // deprecation
-              client.connect(function(err, db) {
-                  if(db) {
-                      _db = db.db("sales");
-                      console.log("got connection");
-                  }
-              })
-          },
-          getDb: function() {
-              return _db;
-          }
-      }
+                module.exports = {
+                    connectToServer: async function() {
+                        await client.connect();
+                        _db = client.db("mongodbVSCodePlaygroundDB");
+                        _collection = _db.collection('sales');
+                    },
+                    getDb: function() {
+                        return _collection;
+                    }
+                }
       
-conn.js using promise
-
-        const { MongoClient } = require('mongodb');
-        const Db = "mongodb+srv://mithunkumarc:mithu123@cluster0.xhkz2jc.mongodb.net/?retryWrites=true&w=majority";
-
-        const client = new MongoClient(Db, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-
-        var _db;
-
-        module.exports = {
-            connectToServer: async function() {
-                await client.connect();
-                _db = client.db("sales");
-                console.log("connected...");
-            },
-            getDb: function() {
-                return _db;
-            }
-        }
       
 server.js
 
-        const express = require('express');
-        const app = express();
-        const cors = require('cors');
-        const port = process.env.PORT || 5000;
-        app.use(cors());
-        app.use(express.json());
-        const dbo = require('./db/conn.js');
-        app.listen(port, () => {
-            dbo.connectToServer(function (err) {
-                if(err) console.error(err);
+            const express = require('express');
+            const app = express();
+            const cors = require('cors');
+
+            const port = process.env.PORT || 5000;
+
+            app.use(cors());
+            app.use(express.json());
+            app.use(require("./routes/record"));
+
+            const dbo = require('./db/conn.js');
+            app.listen(port, async () => {
+                await dbo.connectToServer(function (err) {
+                    if(err) console.error(err);
+                });
+                console.log(`server listening on port ${port}`);
             });
-            console.log(`server listening on port ${port}`);
-        });
