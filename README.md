@@ -39,3 +39,7 @@
 #### open mongo shell command prompt windows
 
         C:\Program Files\MongoDB\Server\4.2\bin>mongo
+
+#### practice
+
+        https://github.com/mongodb-the-definitive-guide-3e/mongodb-the-definitive-guide-3e
