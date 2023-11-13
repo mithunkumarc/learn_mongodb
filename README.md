@@ -13,6 +13,12 @@
        #enable it
        lenovo@ubuntu:~/Downloads$ sudo systemctl status mongod
 
+       # install mongo shell
+       sudo dpkg -i mongodb-mongosh_1.10.6_amd64.deb 
+        # check using command : mongosh
+
+        # install robo3t , create connection and connect
+
        follow : https://www.youtube.com/watch?v=HSIh8UswVVY
 
 ### mongodb
