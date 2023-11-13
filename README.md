@@ -1,3 +1,20 @@
+#### install 
+
+        download community server deb file ubuntu version
+        sudo dpkg -i mongodb-org-server_7.0.3_amd64.deb
+        check status and enable it
+        lenovo@ubuntu:~/Downloads$ sudo systemctl status mongod
+                ● mongod.service - MongoDB Database Server
+                     Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
+                     Active: inactive (dead)
+                       Docs: https://docs.mongodb.org/manual
+        # start mongod service
+       lenovo@ubuntu:~/Downloads$ sudo systemctl start mongod
+       #enable it
+       lenovo@ubuntu:~/Downloads$ sudo systemctl status mongod
+
+       follow : https://www.youtube.com/watch?v=HSIh8UswVVY
+
 ### mongodb
         cross platform, opensource , document oriented db, 
 
