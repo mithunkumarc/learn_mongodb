@@ -21,6 +21,24 @@
 
        follow : https://www.youtube.com/watch?v=HSIh8UswVVY
 
+#### uninstall
+        
+        Type the following commands one by one to uninstall MongoDB:
+        
+        Stop MongoDB process:
+        
+        sudo service mongod stop
+        Completely remove the installed MongoDB packages:
+        
+        sudo apt-get purge mongodb-org*
+        Remove the data directories, MongoDB database(s), and log files:
+        
+        sudo rm -r /var/log/mongodb /var/lib/mongodb
+        To check if MongoDB is successfully uninstalled, type:
+        
+        service mongod status
+        
+
 ### mongodb
         cross platform, opensource , document oriented db, 
 
